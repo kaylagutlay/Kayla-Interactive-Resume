@@ -1,0 +1,249 @@
+/* Color Palette & Variables */
+:root {
+    --bg-page: #f0f7ff;
+    --container-bg: #ffffff;
+    --accent-blue-mid: #a9caff;
+    --accent-blue-mid: #a9c6f5;
+    --accent-blue-light: #eff6ff;
+    --accent-blue-border: #dbeafe;
+    --text-main: #1e293b;
+    --text-muted: #64748b;
+    --border-light: #dbeafe;
+}
+
+/* Global Styles */
+body {
+    font-family: 'Rockwell', 'Rockwell Nova', 'Courier New', serif;
+    background-color: var(--bg-page);
+    color: var(--text-main);
+    margin: 0;
+    padding: 40px 20px;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: var(--container-bg);
+    padding: 50px;
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(59, 130, 246, 0.1);
+    border: 1px solid var(--border-light);
+}
+
+header {
+    text-align: center;
+    border-bottom: 3px solid var(--accent-blue-mid);
+    padding-bottom: 30px;
+    margin-bottom: 40px;
+}
+
+/* PROFILE FRAME - FIXED TO CIRCLE */
+.profile-frame {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 20px;
+    border: 4px solid var(--accent-blue-mid);
+    border-radius: 50% !important; /* Force circle shape */
+    overflow: hidden;
+    background-color: var(--accent-blue-light);
+    transition: all 0.3s ease;
+    padding: 0; /* Ensures image fills the circle */
+}
+
+.profile-pic {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%; /* Ensures image itself stays circular */
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.6rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent-blue-dark) !important;
+}
+
+.instruction {
+    font-size: 0.85rem;
+    font-style: italic;
+    color: var(--text-muted);
+}
+
+section {
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    margin-bottom: 15px;
+    padding: 15px 25px;
+    cursor: pointer;
+    background-color: var(--accent-blue-light);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+section:hover {
+    border-color: var(--accent-blue-mid);
+    background-color: #ffffff;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(59, 130, 246, 0.1);
+}
+
+h2 {
+    font-size: 1.1rem;
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    letter-spacing: 1px;
+    color: var(--accent-blue-dark) !important;
+}
+
+h2::after {
+    content: '▼';
+    font-size: 0.7rem;
+    transition: transform 0.3s ease;
+    color: var(--accent-blue-mid);
+}
+
+section.active h2::after {
+    transform: rotate(180deg);
+}
+
+.content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out, padding 0.3s ease;
+}
+
+.content p {
+    text-align: justify;
+    text-justify: inter-word;
+    hyphens: auto;
+    margin-bottom: 10px;
+}
+
+section.active .content {
+    max-height: 2000px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-light);
+    margin-top: 15px;
+}
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+h3 {
+    color: var(--accent-blue-dark) !important;
+    margin-top: 0;
+    font-size: 1rem;
+}
+
+.item { margin-bottom: 20px; }
+
+.item-title {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+}
+
+.date, .sub-text {
+    color: var(--text-muted);
+}
+
+.cert-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.cert-item {
+    text-align: center;
+    padding: 15px;
+    background: var(--accent-blue-light);
+    border: 1px solid var(--accent-blue-border);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.cert-item:hover {
+    border-color: var(--accent-blue-mid);
+    background: #ffffff;
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(59, 130, 246, 0.1);
+    cursor: zoom-in;
+}
+
+.img-placeholder {
+    width: 100%;
+    height: 150px;
+    overflow: hidden;
+    background-color: #dbeafe;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+}
+
+.cert-img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.modal {
+    display: none; 
+    position: fixed;
+    z-index: 2000;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background-color: rgb(164, 185, 255);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    max-width: 90%;
+    max-height: 85%;
+    border: 4px solid white;
+    border-radius: 8px;
+    animation: zoomEffect 0.3s ease;
+}
+
+@keyframes zoomEffect {
+    from {transform: scale(0.7); opacity: 0;}
+    to {transform: scale(1); opacity: 1;}
+}
+
+.close-btn {
+    position: absolute;
+    top: 20px; right: 35px;
+    color: white; font-size: 40px; font-weight: bold;
+}
+
+.contact-list, .skill-list {
+    list-style: none;
+    padding: 0; margin: 0;
+}
+
+.contact-list li, .skill-list li { margin-bottom: 10px; }
+
+.skill-list li::before {
+    content: "•";
+    color: var(--accent-blue-mid);
+    font-weight: bold;
+    display: inline-block; 
+    width: 1.2em;
+}
+
+strong { color: var(--accent-blue-dark); }
+
+@media (max-width: 600px) {
+    .container { padding: 25px; }
+    .grid-2 { grid-template-columns: 1fr; gap: 20px; }
+    header h1 { font-size: 1.8rem; }
+}

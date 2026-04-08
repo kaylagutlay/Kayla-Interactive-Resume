@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kayla Gutlay - Interactive Resume</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <div class="profile-frame cert-item" onclick="event.stopPropagation(); openModal('image/profile.jpg')">
+            <img src="image/profile.jpg" alt="Kayla Gutlay" class="profile-pic cert-img">
+        </div>
+        <h1>KAYLA GUTLAY</h1>
+        <p class="instruction">Click a section to expand details, or any image to view it larger</p>
+    </header>
+
+    <section onclick="toggleSection(this)">
+        <h2>About Me</h2>
+        <div class="content">
+            <p>Motivated IT student with foundational knowledge of technology concepts and a strong drive for professional growth. Dependable, cooperative, and quick to adapt to new tools, tasks, and work environments. Values teamwork, effective communication, and continuous learning, with a proactive approach to contributing to projects and tasks.</p>
+        </div>
+    </section>
+
+    <section onclick="toggleSection(this)">
+        <h2>SKILLS</h2>
+        <div class="content">
+            <div class="grid-2">
+                <div>
+                    <h3>Technical Skills</h3>
+                    <ul class="skill-list">
+                        <li>Microsoft Office (Word, Excel, PowerPoint)</li>
+                        <li>Google Workspace (Docs, Sheets, Drive)</li>
+                        <li>Data Encoding & Management</li>
+                        <li>Presentation Tools (e.g., Canva)</li>
+                        <li>Documentation</li>
+                        <li>Technical Writing</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Soft Skills</h3>
+                    <ul class="skill-list">
+                        <li>Quick learner</li>
+                        <li>Collaborative</li>
+                        <li>Detail-oriented</li>
+                        <li>Adaptable</li>
+                        <li>Communicative</li>
+                        <li>Dependable</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section onclick="toggleSection(this)">
+        <h2>EDUCATION BACKGROUND</h2>
+        <div class="content">
+            <div class="item">
+                <div class="item-title">
+                    <span>BS in Information Technology</span>
+                    <span class="date">2022 — 2026</span>
+                </div>
+                <div class="sub-text">Sorsogon State University - Bulan Campus</div>
+            </div>
+            <div class="item">
+                <div class="item-title">
+                    <span>GAS (General Academic Strand)</span>
+                    <span class="date">2020 — 2022</span>
+                </div>
+                <div class="sub-text">Alcoba National High School</div>
+            </div>
+        </div>
+    </section>
+
+    <section onclick="toggleSection(this)">
+        <h2>CERTIFICATES</h2>
+        <div class="content">
+            <div class="cert-grid">
+                <div class="cert-item" onclick="event.stopPropagation(); openModal('image/Digital.jpg')">
+                    <div class="img-placeholder">
+                        <img src="image/Digital.jpg" alt="Digitalization" class="cert-img">
+                    </div>
+                    <p><strong>Digital Literacy</strong></p>
+                </div>
+                <div class="cert-item" onclick="event.stopPropagation(); openModal('image/Exel.jpg')">
+                    <div class="img-placeholder">
+                        <img src="image/Exel.jpg" alt="Microsoft Excel" class="cert-img">
+                    </div>
+                    <p><strong>Microsoft Excel Fundamentals</strong></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section onclick="toggleSection(this)">
+        <h2>CONTACT INFO</h2>
+        <div class="content">
+            <div class="grid-2">
+                <div>
+                    <h3>Contact Details</h3>
+                    <ul class="contact-list">
+                        <li><strong>Phone:</strong> +63 977 319 3901</li>
+                        <li><strong>Email:</strong> kaylagutlay08@gmail.com</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Address</h3>
+                    <ul class="contact-list">
+                        <li><strong>Location:</strong> Purok 7, San Isidro, Bulan, Sorsogon</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<div id="imageModal" class="modal" onclick="closeModal()">
+    <span class="close-btn">&times;</span>
+    <img class="modal-content" id="bigImg">
+</div>
+
+<script>
+    function toggleSection(element) {
+        element.classList.toggle('active');
+    }
+
+    function openModal(imgSrc) {
+        const modal = document.getElementById("imageModal");
+        const modalImg = document.getElementById("bigImg");
+        modal.style.display = "flex";
+        modalImg.src = imgSrc;
+    }
+
+    function closeModal() {
+        document.getElementById("imageModal").style.display = "none";
+    }
+</script>
+
+</body>
+</html>
